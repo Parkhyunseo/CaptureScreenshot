@@ -19,13 +19,14 @@ public class ScreenShotController : MonoBehaviour
     private void Update()
     {
         var space = Input.GetKeyDown(KeyCode.Space);
+        var stop = Input.GetKeyDown(KeyCode.Escape);
 
         if (space)
             Initialize();
 
         if (running)
         {
-            if (frameCount > howMany)
+            if (frameCount > howMany || stop)
             {
                 Debug.Log("Capture end");
                 running = false;
